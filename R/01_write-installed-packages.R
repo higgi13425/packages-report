@@ -13,7 +13,11 @@ ipt <- installed.packages() %>%
 ##   * Priority
 ##   * Built
 
+ipt$vnum <- str_extract(ipt$Version,"^\\d") # pulls first digit of version #
+table(ipt$vnum)
+
 write_excel_csv(ipt, here('data/installed-packages.csv'))
+
 ## write it to data/installed-packages.csv
 ## YES overwrite the file that is there now
 ## that came from me (Jenny)
